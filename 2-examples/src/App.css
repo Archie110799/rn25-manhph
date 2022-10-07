@@ -32,7 +32,25 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.text__red {
+  color: red
+}
+
+.bg_ccc {
+  background-color: #ccc;
+}
+
+.item {
+  border-bottom: 1px solid #ccc;
+  /* padding: 20px */
+}
+
+.h-40 {
+  height: 40%!important;
 }
