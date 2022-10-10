@@ -4,11 +4,12 @@ https://www.typescripttutorial.net/
 - Code 1 dự án JS lớn
 + Nhiều file
 + Nhiều func, mình không nắm được input có những gì, thuộc type nào
-+ Bản chất nó là dynamic typing, những object có nhiều field, không biết có những object gì, cần console.log ra thì mới check đc
++ Bản chất nó là dynamic typing, những object có nhiều field, 
+không biết có những object gì, cần console.log ra thì mới check đc
 + Việc dùng sai tên trường, tên func thì trong JS chạy mới báo lỗi.
 
 # KN 
-Ngôn ngữ quy định chặt chẽ về kiểu dữ liệu và dduocj xây dựng trên nền JS.
+Ngôn ngữ quy định chặt chẽ về kiểu dữ liệu và được xây dựng trên nền JS.
 TS không chạy trên trình duyệt, mà chỉ chạy trên dev. -> Khi chúng ta code , thì TS được compile sang JS
 Nó là JS nhưng có thêm static typing: Viết 1 hàm khởi tạo các thuộc tính và type của nó 
 
@@ -18,7 +19,7 @@ Nó là JS nhưng có thêm static typing: Viết 1 hàm khởi tạo các thu�
 - Phát hiện lỗi ngay lúc code, không cần chạy như JS
 - Bảo trì code dễ dàng
 
-# Nhược
+# Nhược điểm
 - Cần code nhiều dòng hơn nhưng tiết kiệm được thời gian bảo trì code.
 - JS viết là chạy ngay trên trình duyệt. Còn TS thì cần được build từ TS qua JS
 
