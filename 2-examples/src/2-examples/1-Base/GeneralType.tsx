@@ -4,7 +4,7 @@
 type Props = {}
 
 const GeneralType = (props: Props) => {
-  const num1 = 1 + 1
+  const num1 = 1
   const num2 : number = 1
 
   const str : string = "string"
