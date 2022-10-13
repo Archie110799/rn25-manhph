@@ -1,22 +1,36 @@
-import React, { Component } from 'react'
+import React from "react";
+import './styles.css'
+import * as Icons from "react-icons/fa";
 
-interface Props {
-  nameProps : string
+type Keys = keyof typeof Icons;
+interface ICustomFaIconProps {
+  name : Keys
+}
+const CustomFaIcon = (props : ICustomFaIconProps) => {
+  const FaIcon = Icons[props.name];
+  if (!FaIcon) return <p>Icon not found!</p>;
+
+  return <FaIcon />;
+};
+
+function ChartBar2({
+  text = "TEXT",
+  color = "pink",
+  iconName = "fa-solid fa-house",
+  percentage = 50,
+}) {
+  return (
+    <div className="div__bar">
+      <CustomFaIcon name="FaStar" />
+      <i className={iconName}></i>
+      <span>{text}</span>
+      <div className="process__bar">
+        <div className="success" style={{ backgroundColor: color, width: (`${percentage}%`) }}>
+          {percentage}%
+        </div>
+      </div>
+    </div>
+  );
 }
 
-type State = {}
-
-class ChartBar2 extends Component<Props, State> {
-  constructor(props : Props){
-    super(props)
-    // khai bao thuoc tinh cua comporntn
-  }
-
-  render() {
-    return (
-      <div>{this.props.nameProps}</div>
-    )
-  }
-}
-
-export default ChartBar2
+export default ChartBar2;
