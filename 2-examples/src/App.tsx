@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import Basic1_S2 from "./homeworks/Session 02/Basic1";
 import ChartBar2 from "./homeworks/Session 02/ChartBar2";
 import LifecycleExample from "./2-examples/4-LifecycleExamples";
-import LifecyleHookExamples from "./2-examples/4-LifecyleHookExamples";
+import LifecyleHookExamples from "./2-examples/5-LifecyleHookExamples";
 import BtNumber from "./components/Bt/BtNumber";
 import ChartBar from "./homeworks/Session 02/ChartBar";
 
