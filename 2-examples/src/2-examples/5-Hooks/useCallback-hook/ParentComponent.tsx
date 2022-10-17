@@ -6,10 +6,23 @@ export default function ParentComponent() {
   const [age, setAge] = React.useState(0);
   const [salary, setSalary] = React.useState(1000);
 
-  //là được sử dụng để tối ưu quá trình render của React functional components. 
-  //Nó sẽ rất hữu ích đối với trường hợp một thành phần (component) 
-  //liên tục được hiển thị lại không cần thiết trong quá trình xử lý sự kiện 
-  //người dùng và có hành vi chức năng phức tạp.
+  // useCallback giữ cho một hàm không được tạo lại lần nữa, 
+  // dựa trên mảng các phần phụ thuộc. 
+  // Nó sẽ trả về chính function đó. 
+  // Sử dụng nó khi mà bạn muốn truyền fuction vào component con 
+  // và chặn không cho một hàm nào đó tiêu thời gian, 
+  // tài nguyên phải tạo lại.
+  // return func
+
+  // Note: Khi không dùng useCallback thì version cũ của hàm sẽ được thu gom lại, 
+  // nhưng nếu dùng useCallback nó sẽ được giữ lại ở trong bộ nhớ, 
+  // trong trường hợp một trong các phần phụ thuộc sẽ hoạt động đúng trở lại 
+  // để trả về version cũ của hàm đó.
+
+  // Dùng useCallback Khi mà bạn cảm thâý thật sự không dùng nó 
+  // thì hiệu suất của ứng dụng của bạn sẽ rất tồi tệ 
+  // hoặc kết quả của việc thực thi một hàm không cần thiết. 
+  // (ví dụ như gọi một API).
 
   const increaseAge = React.useCallback(() => {
     // setAge(age + 1);

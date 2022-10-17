@@ -1,7 +1,12 @@
 import React from 'react';
 
-function Count({ text, count }) {
-  console.log(`Render Count: ${text}`);
+interface ICount {
+  text : string,
+  count : number
+}
+
+function Count({ text, count } : ICount) {
+  // console.log(`Render Count: ${text}`);
   return (
     <div>
       {text} - {count}

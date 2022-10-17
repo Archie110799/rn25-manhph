@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 
 // Hook là một hàm đặc biệt cho phép bạn sử dụng các tính năng của React
 // (mà không cần phải tạo class)
@@ -7,12 +7,12 @@ function Counter() {
   const [count, setCount] = useState(0);
   const timer = useRef<ReturnType<typeof setInterval>>();
 
-  // useEffect cho phép chúng ta sử lý logic trong lifecycle methods. 
-  // Từ cái tên useEffect chắc chúng ta cũng hiểu được hàm sẽ được gọi mỗi khi 
-  // có gì đó ảnh hưởng đến components của bạn. 
-  // Và thực sự nó giống với định nghĩa của 
+  // useEffect cho phép chúng ta sử lý logic trong lifecycle methods.
+  // Từ cái tên useEffect chắc chúng ta cũng hiểu được hàm sẽ được gọi mỗi khi
+  // có gì đó ảnh hưởng đến components của bạn.
+  // Và thực sự nó giống với định nghĩa của
   // componentDidMount và componentDidUpdate.
-  
+
   // Updating: Lifecycle
 
   //Effect
@@ -20,13 +20,13 @@ function Counter() {
   useEffect(() => {
     // every
     // component didmount, didupdate
-    console.log('🔥Component update');
+    console.log("🔥Component update");
   });
 
   useEffect(() => {
     // ONCE - ONLY execute once after FIRST RENDER
     // component didmount
-    console.log('🔥Component mounting');
+    console.log("🔥Component mounting");
     // useRef value stored in .current property
 
     // ASYNC Example
@@ -34,23 +34,23 @@ function Counter() {
 
     // }
     // getData();
-
   }, []); //Dependencies
 
   //
   useEffect(() => {
     // ONCE - ONLY execute once after FIRST RENDER
     // component didmount
-    console.log('🔥Component mounting');
+    console.log("🔥Component mounting");
     // useRef value stored in .current property
     timer.current = setInterval(() => {
-      console.log('Timer running');
+      console.log("Timer running");
       setCount((v) => v + 1);
     }, 1000);
 
     // clear on component willUnmount
     return () => {
       //execute before the next effect or unmount
+      console.log("component willUnmount");
       clearInterval(timer.current);
     };
   }, []); //Dependencies
@@ -58,7 +58,7 @@ function Counter() {
   useEffect(() => {
     //On demand
     //ONLY execute once after FIRST RENDER or "count" state change
-  },[count])
+  }, [count]);
 
   return (
     <div>

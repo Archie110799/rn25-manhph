@@ -8,10 +8,10 @@ interface IUser {
   avatar: string;
 }
 function UseEffect() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
-    fetch("/usersLead", {
+    fetch("https://63284e93a2e90dab7bdd0fd7.mockapi.io/api/v1/users?page=1&limit=10", {
       method: "GET",
     })
       .then((response) => response.json())

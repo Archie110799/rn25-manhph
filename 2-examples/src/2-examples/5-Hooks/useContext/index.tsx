@@ -21,6 +21,10 @@ export interface IThemeContext {
 export const ThemeContext = React.createContext<IThemeContext>({});
 export const useThemeContext = () => useContext(ThemeContext);
 
+// useContext chúng ta có thể chia sẻ state tới các component, 
+// useReducer thì cho phép chúng ta cập nhật giá trị mới cho state. 
+// Nghe khá là giống với flow của Redux
+
 function ReactContextExample() {
   const [theme, setTheme] = React.useState(themes.light);
 

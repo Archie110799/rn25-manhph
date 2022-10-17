@@ -13,15 +13,20 @@ const expensiveFunction = (number: number) => {
   return number;
 };
 
+// useMemo giữ cho một hàm không được thực thi lại nếu 
+// nó không nhận được một tập hợp các tham số đã được sử dụng trước đó. 
+// Nó sẽ trả về kết quả của một function. 
+// Sử dụng nó khi bạn muốn ngăn một số thao tác nặng 
+// hoặc tốn kém tài nguyên được gọi trên mỗi lần render.
 function WithoutMemoCounter() {
   const [count, setCount] = React.useState(0);
   const [todos, setTodos] = React.useState<Array<string>>([]);
 
   // Without React.useMemo(arrow_function)
   // const calculation = expensiveFunction(count);
-
+  // Call mỗi khi component re-render
+  // ---------------------------------------
   // Within React.useMemo(arrow_function)
-
   const calculation = React.useMemo(() => {
     return expensiveFunction(count);
   }, [count]);
@@ -31,7 +36,12 @@ function WithoutMemoCounter() {
   // Nó sẽ tạo ra function này đúng 1 lần đầu,
   // những lần re-render khác nó chỉ trả về 1 function cũ
   // do empty dependences
-  // trả về 1 giá trị memoized value
+  // return 1 giá trị memoized value
+
+  // lưu trữ React components vào trong cache 
+  // để tránh việc render lại không cần thiết.
+
+  // Note: điều này có thể sẽ lớn dần lên và không may nó lại làm giảm hiệu suất ứng dụng của bạn.
 
   return (
     <div>
