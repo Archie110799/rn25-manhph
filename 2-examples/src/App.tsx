@@ -12,6 +12,8 @@ import ReactHookFormWithYup from "./2-examples/6-ReactHookForms/Yub/ReactHookFor
 import RegisterFormWithYup from "./2-examples/6-FormikExamples/RegisterFormWithYup";
 import UseEffect from "./2-examples/5-Hooks/useEffect";
 import ReactMemo from "./2-examples/5-Hooks/components";
+import Practive from "./components/Practive";
+import ChartBar from "./homeworks/Session 02/ChartBar";
 
 function App() {
 
@@ -22,11 +24,15 @@ function App() {
       
       {/* <ReactMemo /> */}
       {/* <UseEffect /> */}
-      <LifecyleHookExamples />
+      {/* <LifecyleHookExamples /> */}
 
       {/* <FormsExamples /> */}
       {/* <ReactHookFormWithYup /> */}
       {/* <RegisterFormWithYup /> */}
+      <Practive initNumber = { 0 }/>
+     
+      {/* <ChartBar  text={"text1"} color1={"red"} color2 = {"pink"} percentage={50}/>
+      <ChartBar  text={"text2"} color1={"green"} color2 = {"red"} percentage={25}/> */}
     </>
   );
 }
