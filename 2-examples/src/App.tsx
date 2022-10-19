@@ -14,6 +14,10 @@ import UseEffect from "./2-examples/5-Hooks/useEffect";
 import ReactMemo from "./2-examples/5-Hooks/components";
 import Practive from "./components/Practive";
 import ChartBar from "./homeworks/Session 02/ChartBar";
+import MagicRouter from "./2-examples/8-MagicRouter";
+import ReactRouterExamples from "./2-examples/8-ReactRouterExamples";
+import Users from "./2-examples/7-NetworkingExamples/Users";
+import ReduxExample from "./2-examples/9-Redux";
 
 function App() {
 
@@ -29,10 +33,16 @@ function App() {
       {/* <FormsExamples /> */}
       {/* <ReactHookFormWithYup /> */}
       {/* <RegisterFormWithYup /> */}
-      <Practive initNumber = { 0 }/>
+      {/* <Practive initNumber = { 0 }/> */}
      
       {/* <ChartBar  text={"text1"} color1={"red"} color2 = {"pink"} percentage={50}/>
       <ChartBar  text={"text2"} color1={"green"} color2 = {"red"} percentage={25}/> */}
+
+      {/* <Users /> */}
+      {/* <ReactRouterExamples /> */}
+      {/* <MagicRouter /> */}
+      <ReduxExample />
+
     </>
   );
 }
