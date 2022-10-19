@@ -14,6 +14,13 @@ function SimpleExample() {
     console.log("Children:", children);
     console.log("Country:", country);
   };
+  const handleOnchange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);
+  };
+  // input params : event : params
+  const handleOnchange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.checked);
+  };
 
   return (
     <div className=" d-flex justify-content-center m-3">

@@ -1,22 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
-interface IPractive {
-  initNumber: number;
-}
+const SignupSchema = Yup.object({
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string().required("Password is required"),
+  passwordConfirmation: Yup.string().oneOf(
+    [Yup.ref("password"), null],
+    "Passwords must match"
+  ),
+  name: Yup.string()
+    .min(3, "Text error min")
+    .max(12, "Text error max")
+    .required("The name is not blank"),
+  age : Yup.number().required("The age is not blank")
+});
 
-function Practive(props: IPractive) {
-  const [isLike, setIsLike] = useState(false);
-  const handleOnlick = () => {
-    setIsLike(!isLike);
+function Practive() {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      age: 0,
+    },
+    validationSchema: SignupSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
+  const handleChange = (e: any) => {
+    console.log(e.target);
   };
 
   return (
-    <>
-      <button onClick={handleOnlick}>
-        {isLike === true ? "Unlike" : "Like"}
-      </button>
-      <span>{isLike === true ? 1 : 0}</span>
-    </>
+    <form onSubmit={formik.handleSubmit}>
+      <div>
+        <input
+          name="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <p>{formik.touched.name ? formik.errors.name : null}</p>
+      </div>
+      <div>
+        <input
+          name="email"
+          value={formik.values.email}
+          onChange={handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <p>{formik.touched.email ? formik.errors.email : null}</p>
+      </div>
+      <div>
+        <input
+          name="age"
+          value={formik.values.age}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <p>{formik.touched.age ? formik.errors.age : null}</p>
+      </div>
+      <input type="submit" />
+    </form>
   );
 }
 
