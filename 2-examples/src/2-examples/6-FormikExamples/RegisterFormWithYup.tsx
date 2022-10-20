@@ -4,11 +4,11 @@ import * as Yup from "yup";
 
 const SignupSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().required("Password is required"),
-  passwordConfirmation: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "Passwords must match"
-  ),
+  // password: Yup.string().required("Password is required"),
+  // passwordConfirmation: Yup.string().oneOf(
+  //   [Yup.ref("password"), null],
+  //   "Passwords must match"
+  // ),
   name: Yup.string()
     .min(3, "The name must be unique and between 3 - 128 characters")
     .max(128, "The name must be unique and between 3 - 128 characters")
@@ -46,7 +46,7 @@ function RegisterFormWithYup() {
         <input
           name="email"
           value={formik.values.email}
-          onChange={handleChange}
+          onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
         <p>{formik.touched.name ? formik.errors.name : null}</p>

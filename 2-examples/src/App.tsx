@@ -32,7 +32,7 @@ function App() {
 
       {/* <FormsExamples /> */}
       {/* <ReactHookFormWithYup /> */}
-      {/* <RegisterFormWithYup /> */}
+      <RegisterFormWithYup />
       {/* <Practive initNumber = { 0 }/> */}
      
       {/* <ChartBar  text={"text1"} color1={"red"} color2 = {"pink"} percentage={50}/>
@@ -41,7 +41,7 @@ function App() {
       {/* <Users /> */}
       {/* <ReactRouterExamples /> */}
       {/* <MagicRouter /> */}
-      <ReduxExample />
+      {/* <ReduxExample /> */}
 
     </>
   );
