@@ -1,7 +1,8 @@
 import React from 'react';
 
 function Login() {
-  const onSubmit = () => {
+
+  const onSubmitPromise = () => {
     const data = {
       username: 'tungnt@softech.vn',
       password: '123456789',
@@ -53,7 +54,7 @@ function Login() {
 
   return (
     <div>
-      <button onClick={onSubmit}>Login</button>
+      <button onClick={onSubmitPromise}>Login</button>
       <button onClick={onSubmitAsync}>Login Async</button>
     </div>
   );

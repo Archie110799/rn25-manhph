@@ -16,32 +16,34 @@ import Practive from "./components/Practive";
 import ChartBar from "./homeworks/Session 02/ChartBar";
 import MagicRouter from "./2-examples/8-MagicRouter";
 import ReactRouterExamples from "./2-examples/8-ReactRouterExamples";
-import Users from "./2-examples/7-NetworkingExamples/Users";
 import ReduxExample from "./2-examples/9-Redux";
+import Users from "./2-examples/7-NetworkingExamples/Axios/Users";
 
 function App() {
 
   return (
     <>
+      {/* <ChartBar  text={"text1"} color1={"red"} color2 = {"pink"} percentage={50}/>
+      <ChartBar  text={"text2"} color1={"green"} color2 = {"red"} percentage={25}/> */}
+
       {/* <LifecycleExample /> */}
-      {/* <LifecyleHookExamples /> */}
-      
+
       {/* <ReactMemo /> */}
       {/* <UseEffect /> */}
       {/* <LifecyleHookExamples /> */}
 
       {/* <FormsExamples /> */}
       {/* <ReactHookFormWithYup /> */}
-      <RegisterFormWithYup />
-      {/* <Practive initNumber = { 0 }/> */}
+      {/* <RegisterFormWithYup /> */}
      
-      {/* <ChartBar  text={"text1"} color1={"red"} color2 = {"pink"} percentage={50}/>
-      <ChartBar  text={"text2"} color1={"green"} color2 = {"red"} percentage={25}/> */}
-
       {/* <Users /> */}
+      
       {/* <ReactRouterExamples /> */}
       {/* <MagicRouter /> */}
+
       {/* <ReduxExample /> */}
+
+      <Practive/>
 
     </>
   );

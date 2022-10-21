@@ -4,16 +4,16 @@ import * as Yup from "yup";
 
 const SignupSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().required("Password is required"),
-  passwordConfirmation: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "Passwords must match"
-  ),
+  // password: Yup.string().required("Password is required"),
+  // passwordConfirmation: Yup.string().oneOf(
+  //   [Yup.ref("password"), null],
+  //   "Passwords must match"
+  // ),
   name: Yup.string()
     .min(3, "Text error min")
     .max(12, "Text error max")
     .required("The name is not blank"),
-  age : Yup.number().required("The age is not blank")
+  age: Yup.number().required("The age is not blank"),
 });
 
 function Practive() {
@@ -21,7 +21,7 @@ function Practive() {
     initialValues: {
       name: "",
       email: "",
-      age: 0,
+      age: undefined,
     },
     validationSchema: SignupSchema,
     onSubmit: (values) => {
@@ -29,12 +29,13 @@ function Practive() {
     },
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    formik.setFieldValue(e.target.name, e.target.value);
     console.log(e.target);
   };
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className="w-50 m-auto text-center">
       <div>
         <input
           name="name"
@@ -42,7 +43,7 @@ function Practive() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        <p>{formik.touched.name ? formik.errors.name : null}</p>
+        <p>{formik.errors.name ?? null}</p>
       </div>
       <div>
         <input
@@ -51,7 +52,7 @@ function Practive() {
           onChange={handleChange}
           onBlur={formik.handleBlur}
         />
-        <p>{formik.touched.email ? formik.errors.email : null}</p>
+        <p>{formik.errors.email ?? null}</p>
       </div>
       <div>
         <input
@@ -60,7 +61,7 @@ function Practive() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        <p>{formik.touched.age ? formik.errors.age : null}</p>
+        <p>{formik.errors.age ?? null}</p>
       </div>
       <input type="submit" />
     </form>

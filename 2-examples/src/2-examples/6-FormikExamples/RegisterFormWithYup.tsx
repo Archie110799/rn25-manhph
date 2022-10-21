@@ -27,7 +27,8 @@ function RegisterFormWithYup() {
     },
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    formik.setFieldValue(e.target.name, e.target.value);
     console.log(e.target);
   };
 
@@ -40,16 +41,16 @@ function RegisterFormWithYup() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        <p>{formik.touched.name ? formik.errors.name : null}</p>
+        <p>{formik.errors.name ?? null}</p>
       </div>
       <div>
         <input
           name="email"
           value={formik.values.email}
-          onChange={formik.handleChange}
+          onChange={handleChange}
           onBlur={formik.handleBlur}
         />
-        <p>{formik.touched.name ? formik.errors.name : null}</p>
+        <p>{formik.errors.email ?? null}</p>
       </div>
       <input type="submit" />
     </form>
