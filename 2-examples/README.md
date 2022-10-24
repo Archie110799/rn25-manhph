@@ -44,3 +44,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# rn25-manhph
+- Repo git : 
+- Create-react-app : 2-examples : App reactjs
++ Install package: npm i 
++ Start : npm start
+  + index.tsx : 
+        - add element -> divId = "root"
+        - code: cpn App.tsx
+
+- Component (CPN)
++ Class cpn
++ Functional cpn:(recommend)
+ + Tao cpn: Ten cpn phai viet hoa chu cai dau tien
+ + Tao base cpn: rfce
+  + return: code JSX render UI
+  + ngay tren return : khai bao bien, reacthooks ...

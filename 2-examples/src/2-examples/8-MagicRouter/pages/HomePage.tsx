@@ -1,21 +1,48 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../../9-Redux/interfaces/common";
-import { State } from "../../9-Redux/rootReducer";
-import { deleteUserAsync, getUsersAsync } from "../../9-Redux/User/actions";
 
 function HomePage() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { users } = useSelector((state: State) => state.user);
+
+  const [users, setUsers] = useState<Array<IUser>>([]);
   useEffect(() => {
     // CALL API  get list Users
-    dispatch(getUsersAsync());
+    handleGetUsers();
   }, []);
 
+  const handleGetUsers = () => {
+    const url = "https://63284e93a2e90dab7bdd0fd7.mockapi.io/api/v1/users";
+    fetch(url, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Xử lý kết quả JSON ở đây
+        console.log(data);
+        setUsers(data);
+      })
+      .catch((error) => {
+        // Nếu có lỗi
+        console.error(error);
+      });
+  };
+
   const handleDelete = (id: string | undefined) => {
-    dispatch(deleteUserAsync(id));
+    const url = "https://63284e93a2e90dab7bdd0fd7.mockapi.io/api/v1/users/" + id;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Xử lý kết quả JSON ở đây
+        console.log(data);
+        handleGetUsers()
+      })
+      .catch((error) => {
+        // Nếu có lỗi
+        console.error(error);
+      });
   };
 
   return (

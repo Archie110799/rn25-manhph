@@ -1,6 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import InputCustom from "./InputCustom";
+import { useState, useEffect } from "react";
 
 const SignupSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -16,7 +18,16 @@ const SignupSchema = Yup.object({
   age: Yup.number().required("The age is not blank"),
 });
 
+interface IUser {
+  name: string;
+}
+
 function Practive() {
+  const [stateInput, setStateInput] = useState<IUser>({ name: "" });
+  useEffect(() => {
+    console.log(stateInput);
+  }, [stateInput]);
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -34,38 +45,7 @@ function Practive() {
     console.log(e.target);
   };
 
-  return (
-    <form onSubmit={formik.handleSubmit} className="w-50 m-auto text-center">
-      <div>
-        <input
-          name="name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-        <p>{formik.errors.name ?? null}</p>
-      </div>
-      <div>
-        <input
-          name="email"
-          value={formik.values.email}
-          onChange={handleChange}
-          onBlur={formik.handleBlur}
-        />
-        <p>{formik.errors.email ?? null}</p>
-      </div>
-      <div>
-        <input
-          name="age"
-          value={formik.values.age}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-        <p>{formik.errors.age ?? null}</p>
-      </div>
-      <input type="submit" />
-    </form>
-  );
+  return <InputCustom stateInput={stateInput} setStateInput={setStateInput} />;
 }
 
 export default Practive;

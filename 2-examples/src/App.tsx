@@ -18,6 +18,8 @@ import MagicRouter from "./2-examples/8-MagicRouter";
 import ReactRouterExamples from "./2-examples/8-ReactRouterExamples";
 import ReduxExample from "./2-examples/9-Redux";
 import Users from "./2-examples/7-NetworkingExamples/Axios/Users";
+import NewComponent from "./components/NewComponent";
+import Session08 from "./homeworks/Session08";
 
 function App() {
 
@@ -25,6 +27,10 @@ function App() {
     <>
       {/* <ChartBar  text={"text1"} color1={"red"} color2 = {"pink"} percentage={50}/>
       <ChartBar  text={"text2"} color1={"green"} color2 = {"red"} percentage={25}/> */}
+
+      {/* <NewComponent nameProps1 = {1} nameProps2 = {"class__blue"}/>
+
+      <NewComponent nameProps1 = {4} nameProps2 = {"class__red"}/> */}
 
       {/* <LifecycleExample /> */}
 
@@ -39,12 +45,13 @@ function App() {
       {/* <Users /> */}
       
       {/* <ReactRouterExamples /> */}
-      {/* <MagicRouter /> */}
+      <MagicRouter />
 
       {/* <ReduxExample /> */}
 
-      <Practive/>
+      {/* <Practive/> */}
 
+      {/* <Session08 /> */}
     </>
   );
 }
