@@ -1,51 +1,48 @@
 import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import InputCustom from "./InputCustom";
-import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import DetailUser from "./DetailUser";
+import ListPage from "./ListPage";
+import Navi from "./Navi";
 
-const SignupSchema = Yup.object({
-  email: Yup.string().email("Invalid email").required("Required"),
-  // password: Yup.string().required("Password is required"),
-  // passwordConfirmation: Yup.string().oneOf(
-  //   [Yup.ref("password"), null],
-  //   "Passwords must match"
-  // ),
-  name: Yup.string()
-    .min(3, "Text error min")
-    .max(12, "Text error max")
-    .required("The name is not blank"),
-  age: Yup.number().required("The age is not blank"),
-});
+// BrowserRouter
+// Routes
+// Route
+// Navigation
 
-interface IUser {
-  name: string;
-}
+// Khoi tao 3 cpn: (fuctional cpn)
+// cpn ListPage.tsx -> <h1>List page</h1>
+// cpn Form.tsx     -> bt Form hom bua
+// cpn Detail.tsx   -> <h1>Detail page</h1>
+
+// path = /         -> render cpn ListPage
+// path = /form     -> render cpn Form
+// path = /detail   -> render cpn Detail
 
 function Practive() {
-  const [stateInput, setStateInput] = useState<IUser>({ name: "" });
-  useEffect(() => {
-    console.log(stateInput);
-  }, [stateInput]);
+  return (
+    <BrowserRouter>
+      {/* Navigation */}
+      {/* <Link to={"/"}>List</Link>
+      <Link to={"/form"}>Form</Link>
+      <Link to={"/detail"}>Detail</Link> */}
+      <Navi />
 
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      age: undefined,
-    },
-    validationSchema: SignupSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    formik.setFieldValue(e.target.name, e.target.value);
-    console.log(e.target);
-  };
-
-  return <InputCustom stateInput={stateInput} setStateInput={setStateInput} />;
+      {/* Routes config */}
+      <Routes>
+        <Route path="/" element={<ListPage />} />
+        <Route path="/form" element={<div>Form page</div>} />
+        <Route path="/detail/:id" element={<DetailUser />} />
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>404 Page not found 😂😂😂</p>
+            </main>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default Practive;

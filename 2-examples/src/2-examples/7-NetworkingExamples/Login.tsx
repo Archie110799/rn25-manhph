@@ -10,6 +10,7 @@ function Login() {
 
     const url = 'https://server.aptech.io/training/auth/login';
     fetch(url, {
+      
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

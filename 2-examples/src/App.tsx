@@ -45,11 +45,11 @@ function App() {
       {/* <Users /> */}
       
       {/* <ReactRouterExamples /> */}
-      <MagicRouter />
+      {/* <MagicRouter /> */}
 
       {/* <ReduxExample /> */}
 
-      {/* <Practive/> */}
+      <Practive/>
 
       {/* <Session08 /> */}
     </>
